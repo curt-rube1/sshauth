@@ -1,0 +1,18 @@
+---
+- name: show hostname and version
+  connection: network_cli
+  gather_facts: false
+  hosts: "wd-lab-switch"
+  tasks: 
+
+    - name: Gather IOS Facts
+      ios_facts: 
+      when: ansible_network_os == 'ios'
+
+    - name: Display hostname
+      debug: 
+        msg: "The hostname is {{ ansible_net_hostname  }}"
+
+    - name: Display version
+      debug:
+        msg: "The running software version is: {{ ansible_net_version }}"
