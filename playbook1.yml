@@ -2,7 +2,7 @@
 - name: show hostname and version
   connection: network_cli
   gather_facts: false
-  hosts: "wd-lab-switch"
+  hosts: "csr-routers"
   tasks: 
 
     - name: Gather IOS Facts
